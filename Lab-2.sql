@@ -98,16 +98,22 @@ VALUES(481,'kranti','nehru place',3000)
 
 ---LAB 2.1 From the above given tables perform the following queries using SELECT statement:
 
---1. Retrieve all data from table DEPOSIT. 	SELECT * from Deposit
+--1. Retrieve all data from table DEPOSIT. 
+	SELECT * from Deposit
 
---2. Retrieve all data from table BORROW. 	SELECT * from Branch
+--2. Retrieve all data from table BORROW. 
+	SELECT * from Branch
 
---3. Retrieve all data from table CUSTOMERS. 	SELECT * FROM Customers
---4. Display Account No, Customer Name & Amount from DEPOSIT.	SELECT Actno,Cname,Amount from Deposit
+--3. Retrieve all data from table CUSTOMERS. 
+	SELECT * FROM Customers
 
---5. Display Loan No, Amount from BORROW.	SELECT Loanno,Amount from Borrow
+--4. Display Account No, Customer Name & Amount from DEPOSIT.
+	SELECT Actno,Cname,Amount from Deposit
 
---6. Display loan details of all customers who belongs to ‘ANDHERI’ branch.
+--5. Display Loan No, Amount from BORROW.
+	SELECT Loanno,Amount from Borrow
+
+--6. Display loan details of all customers who belongs to â€˜ANDHERIâ€™ branch.
 	SELECT * FROM Borrow
 	WHERE Bname ='ANDHERI'
 
@@ -127,7 +133,7 @@ VALUES(481,'kranti','nehru place',3000)
 	SELECT Cname FROM Deposit
 	WHERE Actno<105
 
---11. Display name of customer who belongs to either ‘NAGPUR’ Or ‘DELHI’. (OR & IN)
+--11. Display name of customer who belongs to either â€˜NAGPURâ€™ Or â€˜DELHIâ€™. (OR & IN)
 	--Using OR: 
 		SELECT Cname FROM Customers
 		WHERE City='nagpur' OR City='delhi'
@@ -147,13 +153,15 @@ VALUES(481,'kranti','nehru place',3000)
 		SELECT * FROM Borrow
 		WHERE Amount BETWEEN 3000 AND 8000
 
---14. Find all depositors who do not belongs to ‘ANDHERI’ branch.
+--14. Find all depositors who do not belongs to â€˜ANDHERIâ€™ branch.
 	SELECT * FROM Deposit
 	WHERE Bname <> 'andheri'
 
 --15. Display the name of borrowers whose amount is NULL.
 	SELECT Cname FROM Borrow
-	WHERE Amount IS NULL--16. Display Account No, Customer Name & Amount of such customers who belongs to ‘AJNI’,‘KAROLBAGH’ Or ‘M.G. ROAD’ and Account No is less than 104.
+	WHERE Amount IS NULL
+
+--16. Display Account No, Customer Name & Amount of such customers who belongs to â€˜AJNIâ€™,â€˜KAROLBAGHâ€™ Or â€˜M.G. ROADâ€™ and Account No is less than 104.
 	SELECT Actno, Cname, Amount FROM Deposit
 	WHERE Bname IN ('ajni','karolbagh','m.g.road') AND Actno<104
 
@@ -164,7 +172,7 @@ VALUES(481,'kranti','nehru place',3000)
 	SELECT TOP 3 * FROM Deposit
 	WHERE Amount>1000
 
---19. Display Loan No, Customer Name of first five borrowers whose branch name does not belongs to ‘ANDHERI’.
+--19. Display Loan No, Customer Name of first five borrowers whose branch name does not belongs to â€˜ANDHERIâ€™.
 	SELECT TOP 5 Loanno, Cname FROM Borrow
 	WHERE Bname <> 'andheri'
 
@@ -172,7 +180,9 @@ VALUES(481,'kranti','nehru place',3000)
 	SELECT DISTINCT City FROM Customers
 
 --21. Retrieve all unique branches using DISTINCT. (Use Branch Table)
-	SELECT DISTINCT Bname FROM Branch--22. Retrieve all the records of customer table as per their city name in ascending order.
+	SELECT DISTINCT Bname FROM Branch
+
+--22. Retrieve all the records of customer table as per their city name in ascending order.
 	SELECT * FROM Customers
 	ORDER BY City
 
@@ -229,7 +239,11 @@ VALUES(481,'kranti','nehru place',3000)
 
 --10. Make Branch Name & Amount NULL, Whose Loan Number is 481 & Name is KRANTI.
 	UPDATE Borrow SET Bname = NULL, Amount = NULL
-	WHERE Loanno = 481 AND Cname = 'KRANTI'---2.3 From the above given tables perform the following queries using DELETE/DROP/TRUNCATE statement:
+	WHERE Loanno = 481 AND Cname = 'KRANTI'
+
+
+
+---2.3 From the above given tables perform the following queries using DELETE/DROP/TRUNCATE statement:
 
 --1. Delete records of Customer table who belongs to BOMBAY City.
 	DELETE FROM Customers WHERE City = 'BOMBAY'
@@ -237,7 +251,7 @@ VALUES(481,'kranti','nehru place',3000)
 --2. Delete all account numbers whose amount less than equals to 1000.
 	DELETE FROM Deposit WHERE Amount <=1000
 
---3. Delete borrowers whose branch name is ‘AJNI’.
+--3. Delete borrowers whose branch name is â€˜AJNIâ€™.
 	DELETE FROM Borrow WHERE Bname = 'AJNI'
 
 --4. Delete all the borrowers whose loan number between 201 to 210.
@@ -252,7 +266,7 @@ VALUES(481,'kranti','nehru place',3000)
 --7. Remove all customers whose name is ANIL & Account Number is 101.
 	DELETE FROM Deposit WHERE Cname = 'ANIL' AND Actno = 101
 
---8. Delete all the depositors who do not belongs to ‘ANDHERI’ branch.
+--8. Delete all the depositors who do not belongs to â€˜ANDHERIâ€™ branch.
 	DELETE FROM Deposit WHERE Bname <> 'ANDHERI'
 
 --9. Delete all the borrowers whose loan amount is less than 2000 and does not belong to VRCE branch.
